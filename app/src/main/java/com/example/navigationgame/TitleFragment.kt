@@ -19,11 +19,29 @@ class TitleFragment : Fragment() {
         binding.playButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_titleFragment_to_gameFragment))
         return binding.root
     }
-/////////fix 22 - 26
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.overflow_menu,menu)
+
+//    fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+//        menuInflater.inflate(R.menu.overflow_menu,menu)
+//    }
+//
+//    fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+//        return NavigationUI.onNavDestinationSelected(menuItem,requireView().findNavController())||super.onContextItemSelected(menuItem)
+//    }
+
+    override fun onCreateContextMenu(
+        menu: ContextMenu,
+        v: View,
+        menuInfo: ContextMenu.ContextMenuInfo?
+    ) {
+        super.onCreateContextMenu(menu, v, menuInfo)
+        menuInfo.apply { R.menu.overflow_menu }
     }
+
+//    @Deprecated("Deprecated in Java")
+//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+//        super.onCreateOptionsMenu(menu, inflater)
+//        inflater.inflate(R.menu.overflow_menu,menu)
+//    }
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
         return NavigationUI.onNavDestinationSelected(item,requireView().findNavController())||super.onContextItemSelected(item)
