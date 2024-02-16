@@ -45,7 +45,7 @@ class GameFragment : Fragment() {
     lateinit var currentQuestion: Question
     lateinit var answers: MutableList<String>
     private var questionIndex = 0
-    private val numQuestions = minOf((questions.size + 1) / 2, 3)
+    private val numQuestions = minOf((questions.size + 1) / 2, 1)
 
 
 
